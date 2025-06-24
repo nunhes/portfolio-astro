@@ -1,0 +1,3 @@
+- Iconos:
+    - [pheralb](https://svgl.app)
+    - [tabler](https://tabler.io/icons)

@@ -1,17 +1,74 @@
 ---
-import astroLogo from '../assets/astro.svg';
-import background from '../assets/background.svg';
+import meuLogo from "../assets/logotipo.svg";
+import background from "../assets/background.svg";
+
+import Badge from "../components/Badge.astro";
+import LinkedinIcon from "./icons/Linkedin.astro";
+import GithubIcon from "./icons/Github.astro";
+import InstagramIcon from "./icons/Instagram.astro";
+import MailIcon from "./icons/Mail.astro";
+import SocialPill from "./SocialPill.astro";
+import Experience from "./Experience.astro";
 ---
 
 <div id="container">
 	<img id="background" src={background.src} alt="" fetchpriority="high" />
 	<main>
-		<section id="hero">
+		<section class="w-full lg:w-200 mx-auto py-10">
+			<!-- <img src={meuLogo.src} alt="" class="w-15" /> -->
+			<h1 class="text-3xl my-5 flex items-center gap-x-4">
+				Ola, son Ismael! <a
+					href="https://linkedin.com/in/ismael-bernardez/"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					<Badge>Dispoñible para traballar</Badge></a
+				>
+			</h1>
+			<h2 class="text-xl opacity-80 mb-7 text-wrap">
+				Lorem ipsum dolor, sit amet <span
+					class="font-semibold text-pink-500"
+					>consectetur adipisicing</span
+				> elit. Deserunt, modi velit soluta dignissimos consequatur aspernatur
+				ipsum veniam dolorem! <span class="font-semibold opacity-40"
+					>Delectus officia</span
+				>, eius eos fugit amet officiis molestias natus <span
+					class="font-semibold text-pink-500"
+					>laudantium obcaecati</span
+				>, dicta sit culpa? Enim quaerat corporis ex adipisci?
+			</h2>
+
+			<nav class="flex gap-x-4">
+				<SocialPill href="https://linkedin.com/in/ismael-bernardez/">
+					<LinkedinIcon class="size-6" />
+					LinkedIn</SocialPill
+				>
+				<SocialPill href="https://github.com/nunhes/">
+					<GithubIcon class="size-6" />
+					Github</SocialPill
+				>
+				<SocialPill href="http://instagram.com/nunhex">
+					<InstagramIcon class="size-6" />
+					Instagram</SocialPill
+				>
+				<SocialPill href="mailto:nunhes@gmail.com">
+					<MailIcon class="size-6" />
+					nunhes@gmail.com</SocialPill
+				>
+			</nav>
+		</section>
+
+		<section class="w-full lg:w-200 mx-auto py-10">
+			<Experience />
+		</section>
+	</main>
+</div>
+<!-- <section id="hero">
 			<a href="https://astro.build"
-				><img src={astroLogo.src} width="115" height="48" alt="Astro Homepage" /></a
+				><img src={meuLogo.src} width="115" height="48" alt="Astro Homepage" /></a
 			>
 			<h1>
-				To get started, open the <code><pre>src/pages</pre></code> directory in your project.
+				Loque ea, open the <code><pre>src/pages</pre></code> directory in your project.
 			</h1>
 			<section id="links">
 				<a class="button" href="https://docs.astro.build">Read our docs</a>
@@ -24,10 +81,9 @@ import background from '../assets/background.svg';
 					>
 				</a>
 			</section>
-		</section>
-	</main>
+		</section> -->
 
-	<a href="https://astro.build/blog/astro-5/" id="news" class="box">
+<!-- <a href="https://astro.build/blog/astro-5/" id="news" class="box">
 		<svg width="32" height="32" fill="none" xmlns="http://www.w3.org/2000/svg"
 			><path
 				d="M24.667 12c1.333 1.414 2 3.192 2 5.334 0 4.62-4.934 5.7-7.334 12C18.444 28.567 18 27.456 18 26c0-4.642 6.667-7.053 6.667-14Zm-5.334-5.333c1.6 1.65 2.4 3.43 2.4 5.333 0 6.602-8.06 7.59-6.4 17.334C13.111 27.787 12 25.564 12 22.666c0-4.434 7.333-8 7.333-16Zm-6-5.333C15.111 3.555 16 5.556 16 7.333c0 8.333-11.333 10.962-5.333 22-3.488-.774-6-4-6-8 0-8.667 8.666-10 8.666-20Z"
@@ -38,8 +94,7 @@ import background from '../assets/background.svg';
 			From content layers to server islands, click to learn more about the new features and
 			improvements in Astro 5.0
 		</p>
-	</a>
-</div>
+	</a> -->
 
 <style>
 	#background {
@@ -52,17 +107,19 @@ import background from '../assets/background.svg';
 		filter: blur(100px);
 	}
 
-	#container {
-		font-family: Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial, sans-serif;
+	/* #container {
+		font-family: Inter, Roboto, "Helvetica Neue", "Arial Nova",
+			"Nimbus Sans", Arial, sans-serif;
 		height: 100%;
-	}
+	} */
 
 	main {
 		height: 100%;
 		display: flex;
+		flex-direction: column;
 		justify-content: center;
 	}
-
+	/* 
 	#hero {
 		display: flex;
 		align-items: start;
@@ -114,9 +171,8 @@ import background from '../assets/background.svg';
 	}
 
 	pre {
-		font-family:
-			ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono',
-			monospace;
+		font-family: ui-monospace, "Cascadia Code", "Source Code Pro", Menlo,
+			Consolas, "DejaVu Sans Mono", monospace;
 		font-weight: normal;
 		background: linear-gradient(14deg, #d83333 0%, #f041ff 100%);
 		-webkit-background-clip: text;
@@ -144,7 +200,8 @@ import background from '../assets/background.svg';
 		display: inline-block;
 		background:
 			linear-gradient(66.77deg, #f3cddd 0%, #f5cee7 100%) padding-box,
-			linear-gradient(155deg, #d83333 0%, #f041ff 18%, #f5cee7 45%) border-box;
+			linear-gradient(155deg, #d83333 0%, #f041ff 18%, #f5cee7 45%)
+				border-box;
 		border-radius: 8px;
 		border: 1px solid transparent;
 		padding: 6px 8px;
@@ -206,5 +263,5 @@ import background from '../assets/background.svg';
 		h1 {
 			line-height: 1.5;
 		}
-	}
+	} */
 </style>
